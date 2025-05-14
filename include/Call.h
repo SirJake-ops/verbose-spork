@@ -23,6 +23,15 @@ public:
 
     double cumulative_distribution_function(double standard_deviation) const;
 
+    double getrfr() const {
+        return rfr_;
+    }
+
+    double get_time_to_expire() const {
+        return time_to_expire_;
+    }
+
+
 private:
     double current_stock_price_;
     double strike_price_;
