@@ -22,7 +22,7 @@ public:
         standard_deviation_two_ = standard_deviation_one_ - (volatility * std::sqrt(time_to_expire));
     }
 
-    double cumulative_distribution_function(double standard_deviation) const;
+    [[nodiscard]] double cumulative_distribution_function(double standard_deviation) const;
 
 
 private:
