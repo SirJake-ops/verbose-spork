@@ -8,4 +8,7 @@ include_directories(include)
 file(GLOB SOURCES src/*.cpp)
 file(GLOB HEADERS include/*.h)
 
-add_executable(Black_Scholes__Monte main.cpp ${SOURCES} ${HEADERS})
+add_subdirectory(test)
+
+add_executable(Black_Scholes__Monte main.cpp ${SOURCES} ${HEADERS}
+        test/main_test.cpp)
