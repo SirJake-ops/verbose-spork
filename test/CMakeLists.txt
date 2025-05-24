@@ -20,6 +20,8 @@ file(GLOB HEADERS include/*.h)
 add_executable(Black_Scholes__Monte_Test
         main_test.cpp
         ${SOURCES} ${HEADERS}
+        src/Options__TEST.cpp
+        include/TestObjectGenerators.cpp
 )
 
 target_link_libraries(Black_Scholes__Monte_Test gtest gtest_main gmock gmock_main)
