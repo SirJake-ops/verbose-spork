@@ -4,6 +4,7 @@
 
 #ifndef CALL_H
 #define CALL_H
+
 #include <cmath>
 #include <ostream>
 
@@ -14,13 +15,14 @@ public:
     Call() = default;
 
     Call(double current_stock_price, double strike_price, double time_to_expire, double rfr,
-         double volatility): current_stock_price_(current_stock_price),
-                             strike_price_(strike_price),
-                             time_to_expire_(time_to_expire),
-                             rfr_(rfr),
-                             volatility_(volatility) {
+         double volatility) : current_stock_price_(current_stock_price),
+                              strike_price_(strike_price),
+                              time_to_expire_(time_to_expire),
+                              rfr_(rfr),
+                              volatility_(volatility) {
         standard_deviation_one_ = (std::log(current_stock_price / strike_price) + (rfr + std::pow(volatility, 2)) *
-                                   time_to_expire) / (volatility * std::sqrt(time_to_expire));
+                                                                                  time_to_expire) /
+                                  (volatility * std::sqrt(time_to_expire));
 
         standard_deviation_two_ = standard_deviation_one_ - (volatility * std::sqrt(time_to_expire));
     }
@@ -35,9 +37,9 @@ public:
         return time_to_expire_;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, Call lhs) {
+    friend std::ostream &operator<<(std::ostream &os, Call lhs) {
         os << lhs.current_stock_price_ << " " << lhs.strike_price_ << " " << lhs.time_to_expire_
-        << " " << lhs.rfr_ << " " << lhs.volatility_;
+           << " " << lhs.rfr_ << " " << lhs.volatility_;
 
         return os;
     }

@@ -15,6 +15,17 @@ template<typename OptionType>
 class Generator {
 public:
 
+    Generator() {
+        double current_stock_price = getRandomNumber(0.0, 300.0);
+        double strike_price = getRandomNumber(0.0, 300.0);
+        double time_to_expire = getRandomNumber(0.0, 1.0);
+        double rfr = getRandomNumber(0.0, 1.0);
+        double volatility = getRandomNumber(0.0, 1.0);
+
+        OptionType option(current_stock_price, strike_price, time_to_expire, rfr, volatility);
+        _option = option;
+    }
+
     explicit Generator(OptionType option, int size) :
             _option(option),
             _size(size) {
@@ -24,11 +35,11 @@ public:
 
     void generateVectorTesting() {
         for (int i = 0; i < _size; i++) {
-            double current_stock_price = getRandomNumber(0.0, 300.0);
-            double strike_price = getRandomNumber(0.0, 300.0);
-            double time_to_expire = getRandomNumber(0.0, 1.0);
-            double rfr = getRandomNumber(0.0, 1.0);
-            double volatility = getRandomNumber(0.0, 1.0);
+            double current_stock_price = getRandomNumber(0.1, 300.0);
+            double strike_price = getRandomNumber(0.5, 300.0);
+            double time_to_expire = getRandomNumber(0.1, 1.0);
+            double rfr = getRandomNumber(0.5, 1.0);
+            double volatility = getRandomNumber(0.1, 1.0);
 
             OptionType option(current_stock_price, strike_price, time_to_expire, rfr, volatility);
 
@@ -40,8 +51,12 @@ public:
         return _generatorVec;
     }
 
+    OptionType getOption() {
+        return _option;
+    }
+
 private:
-    OptionType _option{}; //This is not a double but rather a option with a
+    OptionType _option{};
     int _size;
     std::vector<OptionType> _generatorVec{};
 

@@ -9,6 +9,9 @@
 
 class Put {
 public:
+
+    Put() = default;
+
     Put(double current_stock_price, double strike_price, double time_to_expire, double rfr,
          double volatility):
     current_stock_price_(current_stock_price),
