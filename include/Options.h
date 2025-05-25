@@ -6,15 +6,25 @@
 #define BLACK_SCHOLES__MONTE_OPTIONS_H
 
 #include <vector>
+#include "Call.h"
+#include "Put.h"
+#include "OptionsMethodsInterface.h"
+
 
 template<typename O>
-class Options {
+concept OptionsType = std::same_as<O, Call> || std::same_as<O, Put>;
+template<typename OptionsType>
+class Options : OptionsMethodsInterface<OptionsType> {
 
-    explicit Options(const std::vector<O>& options): options_(options) {}
+    explicit Options(const std::vector<OptionsType>& options): options_(options) {}
     ~Options() = default;
 
+    bool parity_check(const OptionsType& option) override;
+
+
+
 private:
-    std::vector<O> options_;
+    std::vector<OptionsType> options_;
 };
 
 

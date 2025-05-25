@@ -3,3 +3,7 @@
 //
 
 #include "../include/Options.h"
+
+template<typename OptionsType>
+bool Options<OptionsType>::parity_check(const OptionsType &option) {
+}
