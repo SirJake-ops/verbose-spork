@@ -8,23 +8,27 @@
 #include <vector>
 #include "Call.h"
 #include "Put.h"
-#include "OptionsMethodsInterface.h"
 
 
-template<typename O>
-concept OptionsType = std::same_as<O, Call> || std::same_as<O, Put>;
-template<typename OptionsType>
-class Options : OptionsMethodsInterface<OptionsType> {
+template<typename T>
+concept OptionsType = std::same_as<T, Call> || std::same_as<T, Put>;
 
-    explicit Options(const std::vector<OptionsType>& options): options_(options) {}
+template<OptionsType C, OptionsType P>
+class Options {
+
+    explicit Options(const std::vector<C> &call_options, const std::vector<P> &put_options)
+            : call_options_(call_options), put_options_(put_options) {}
+
     ~Options() = default;
 
-    bool parity_check(const OptionsType& option) override;
-
+    bool parity_check(const C &call, const P &put, double tolerance) override;
 
 
 private:
-    std::vector<OptionsType> options_;
+    C call_option_;
+    P put_option_;
+    std::vector<C> call_options_;
+    std::vector<P> put_options_;
 };
 
 
