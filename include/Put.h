@@ -9,6 +9,9 @@
 
 class Put {
 public:
+
+    Put() = default;
+
     Put(double current_stock_price, double strike_price, double time_to_expire, double rfr,
          double volatility):
     current_stock_price_(current_stock_price),
@@ -24,6 +27,35 @@ public:
 
     [[nodiscard]] double cumulative_distribution_function(double standard_deviation) const;
 
+    [[nodiscard]] double get_current_price() const {
+        return current_stock_price_;
+    }
+
+    [[nodiscard]] double get_strike_price() const {
+        return strike_price_;
+    }
+
+    [[nodiscard]] double get_rfr() const {
+        return rfr_;
+    }
+
+    [[nodiscard]] double get_time_to_expire() const {
+        return time_to_expire_;
+    }
+
+    [[nodiscard]] double get_volatility() const {
+        return volatility_;
+    }
+
+    [[nodiscard]] double get_standard_deviation_one() const {
+        return standard_deviation_one_;
+    }
+
+    [[nodiscard]] double get_standard_deviation_two() const {
+        return standard_deviation_two_;
+    }
+
+    [[nodiscard]] double price() const;
 
 private:
     double current_stock_price_;
