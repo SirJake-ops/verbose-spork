@@ -11,7 +11,7 @@
 
 template<typename O>
 concept OptionType = std::same_as<O, Call> || std::same_as<O, Put>;
-template<typename OptionType>
+template<OptionType T>
 class Generator {
 public:
 
@@ -22,11 +22,11 @@ public:
         double rfr = getRandomNumber(0.0, 1.0);
         double volatility = getRandomNumber(0.0, 1.0);
 
-        OptionType option(current_stock_price, strike_price, time_to_expire, rfr, volatility);
+        T option(current_stock_price, strike_price, time_to_expire, rfr, volatility);
         _option = option;
     }
 
-    explicit Generator(OptionType option, int size) :
+    explicit Generator(T option, int size) :
             _option(option),
             _size(size) {
         generateVectorTesting();
@@ -41,24 +41,24 @@ public:
             double rfr = getRandomNumber(0.5, 1.0);
             double volatility = getRandomNumber(0.1, 1.0);
 
-            OptionType option(current_stock_price, strike_price, time_to_expire, rfr, volatility);
+            T option(current_stock_price, strike_price, time_to_expire, rfr, volatility);
 
             _generatorVec.push_back(option);
         }
     }
 
-    std::vector<OptionType> getVector() {
+    std::vector<T> getVector() {
         return _generatorVec;
     }
 
-    OptionType getOption() {
+    T getOption() {
         return _option;
     }
 
 private:
-    OptionType _option{};
+    T _option{};
     int _size;
-    std::vector<OptionType> _generatorVec{};
+    std::vector<T> _generatorVec{};
 
     double getRandomNumber(double low, double high) {
         std::random_device rd;
