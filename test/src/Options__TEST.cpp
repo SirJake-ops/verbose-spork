@@ -9,12 +9,12 @@
 
 TEST(Options_generic_test, BasicAssertions) {
     //Generate a vector of 10 Call options
-    Call call;
+    Call call{};
     Generator<Call> call_generator(call, 10);
     EXPECT_EQ(call_generator.getVector().size(), 10);
 
     //Generate a vector of 10 Put options
-    Put put;
+    Put put{};
     Generator<Put> put_generator(put, 10);
     EXPECT_EQ(put_generator.getVector().size(), 10);
 }

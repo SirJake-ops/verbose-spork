@@ -57,7 +57,7 @@ public:
 
 private:
     OptionType _option{};
-    int _size;
+    int _size{0};
     std::vector<OptionType> _generatorVec{};
 
     double getRandomNumber(double low, double high) {
