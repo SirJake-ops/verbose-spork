@@ -29,7 +29,7 @@ public:
 
     [[nodiscard]] double cumulative_distribution_function(double standard_deviation) const;
 
-    [[nodiscard]] double getrfr() const {
+    [[nodiscard]] double get_rfr() const {
         return rfr_;
     }
 
