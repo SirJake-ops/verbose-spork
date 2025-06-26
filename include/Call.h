@@ -41,11 +41,7 @@ public:
     [[nodiscard]] double get_strike_price() const {
         return strike_price_;
     }
-
-    [[nodiscard]] double get_rfr() const {
-        return rfr_;
-    }
-
+   
     [[nodiscard]] double get_time_to_expire() const {
         return time_to_expire_;
     }

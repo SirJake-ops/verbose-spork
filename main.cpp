@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 int main() {
-    const auto Print = [](const std::string& message){std::cout << message << std::endl;};
+    const auto Print = [](const std::string& message){std::cout << message << '\n';};
 
     Print("Hello, World!");
 
