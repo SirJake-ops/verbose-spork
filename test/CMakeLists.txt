@@ -24,6 +24,11 @@ add_executable(Black_Scholes__Monte_Test
         include/TestObjectGenerators.h
 )
 
+target_include_directories(Black_Scholes__Monte_Test PRIVATE
+    ${gtest_SOURCE_DIR}/include
+    ${gmock_SOURCE_DIR}/include
+)
+
 target_link_libraries(Black_Scholes__Monte_Test gtest gtest_main gmock gmock_main)
 include(GoogleTest)
 gtest_discover_tests(Black_Scholes__Monte_Test)
