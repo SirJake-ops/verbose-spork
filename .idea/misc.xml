@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Black">
-    <option name="sdkName" value="Python 3.9 virtualenv at C:\Users\jake2\CLionProjects\verbose-spork\data" />
+    <option name="sdkName" value="Python 3.12 virtualenv at ~/CLionProjects/Black_Scholes__Monte/data" />
   </component>
   <component name="CMakePythonSetting">
     <option name="pythonIntegrationState" value="YES" />

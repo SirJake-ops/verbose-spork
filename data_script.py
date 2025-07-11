@@ -1,5 +1,9 @@
+from polygon import RESTClient
+
 def main():
-    print("Hello, world")
+    some_list = [x for x in range(10)]
+    print(some_list)
+
 
 
     some_list = [x for x in range(100)]

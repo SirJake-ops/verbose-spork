@@ -21,11 +21,11 @@ TEST(Options_generic_test, BasicAssertions) {
 
 TEST(Options_Constructor_Test, BasicAssertions) {
     Generator<Call> call_option;
-    EXPECT_NE(call_option.getOption().getrfr(), 0.0);
+    EXPECT_NE(call_option.getOption().get_rfr(), 0.0);
     EXPECT_NE(call_option.getOption().get_time_to_expire(), 0.0);
 
     Generator<Call> put_option;
-    EXPECT_NE(put_option.getOption().getrfr(), 0.0);
+    EXPECT_NE(put_option.getOption().get_rfr(), 0.0);
     EXPECT_NE(put_option.getOption().get_time_to_expire(), 0.0);
 }
 
