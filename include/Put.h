@@ -12,8 +12,8 @@ public:
 
     Put() = default;
 
-    Put(double current_stock_price, double strike_price, double time_to_expire, double rfr,
-         double volatility):
+    Put(const double current_stock_price, const double strike_price, const double time_to_expire, const double rfr,
+         const double volatility):
     current_stock_price_(current_stock_price),
     strike_price_(strike_price),
     time_to_expire_(time_to_expire),
