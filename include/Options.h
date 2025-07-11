@@ -21,7 +21,7 @@ class Options {
 
     ~Options() = default;
 
-    bool parity_check(const C &call, const P &put, double tolerance) override;
+    bool parity_check(const C &call, const P &put, double tolerance);
 
 
 private:
